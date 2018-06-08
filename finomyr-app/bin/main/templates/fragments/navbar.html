@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+
+<nav class="purple darken-2" role="navigation" th:fragment="navbar(activeTab)">
+	<div class="nav-wrapper container">	
+	<a id="logo-container" th:href="@{/home}" class="brand-logo logotext">
+		<!-- <i class="material-icons">account_balance</i> -->finomyr</a>
+		<ul id="nav-mobile" class="right hide-on-med-and-down">
+	        <li><a th:href="@{#}">Dashboard</a></li>
+	        <li><a th:href="@{#}">Investments</a></li>
+	        <li><a th:href="@{#}">Income</a></li>
+	        <li><a th:href="@{/admin}">Manage</a></li>
+	        <li><a th:href="@{/logout}">Logout</a></li>
+	    </ul>		
+	</div>
+</nav>
+</html>

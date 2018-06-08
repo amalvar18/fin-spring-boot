@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:include="/fragments/staticresources :: head">
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1" /> -->	
+</head>
+
+<body>
+<div th:include="/fragments/navbar"></div>
+
+<ul class="collapsible large" data-collapsible="accordion">
+    <li>
+      <div class="collapsible-header"><i class="material-icons">art_track</i>Investment Types</div>
+      <!-- <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div> -->
+      <div class="collapsible-body top-buffer-20 bottom-buffer-20" th:insert="/admin/investtypeform"></div>
+    </li>
+    <li>
+      <div class="collapsible-header"><i class="material-icons">person</i>Users</div>
+      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+    </li>
+    <li>
+      <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
+      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+    </li>
+</ul>
+
+<div th:include="fragments/staticresources :: scripts"></div>
+<script type="application/javascript" th:src="@{/js/autocomplete/investmentType-autocomplete.js}"></script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:include="fragments/staticresources :: head">
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1" /> -->
+	<!-- <title th:inline="text">Finomyr | [[${pageTitle}]] </title> -->
+	<!-- <link type="text/css" rel="stylesheet" th:href="@{/css/loginpage.css}"/> -->
+</head>
+
+<body>
+<!-- <div class="grandParentContaniner"> -->
+<div th:include="/fragments/navbar"></div>	
+<div id="login-page" class="valign-wrapper row login-box top-buffer-20">
+    <div id="loginForm" class="col card hoverable s10 pull-s1 m6 pull-m3 l4 pull-l4 z-depth-6">
+    	<span class="card-title teal-text">Login</span>
+    	<div th:include="/fragments/errormsg"></div>	
+    	<div th:include="/fragments/infomsg"></div>	
+      <form th:action="@{/login}" method="POST" class="login-form">
+  <!--       <div class="row">
+        	                 
+        </div> -->
+        <div class="row margin">
+          <div class="input-field col s12">
+            <i class="material-icons prefix">email</i>
+            <input type="email" class="validate" id="email" name="email">
+            <label for="email" data-error="wrong" data-success="right" class="center-align">Email</label>
+          </div>
+        </div>
+        <div class="row margin">
+          <div class="input-field col s12">
+            <i class="material-icons prefix">lock_outline</i>
+            <input type="password" id="password" name="password">
+            <label for="password">Password</label>
+          </div>
+        </div>
+        <div class="row">          
+          <div class="input-field col s12 m12 l12  login-text">
+              <input type="checkbox" id="remember-me" />
+              <label for="remember-me">Remember me</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <button name="Submit" value="Login" type="Submit" th:text="Login" class="btn waves-effect waves-light col s12"></button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s6 m6 l6">
+            <p class="margin medium-small"><a th:href="@{/registration}">Register</a></p>
+          </div>
+          <div class="input-field col s6 m6 l6">
+              <p class="margin right-align medium-small"><a href="forgot-password.html">Forgot password?</a></p>
+          </div>          
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+	<div th:include="fragments/staticresources :: scripts"></div>
+</body>
+</html>

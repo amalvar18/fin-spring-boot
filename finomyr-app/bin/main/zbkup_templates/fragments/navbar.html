@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+<!-- <head>
+<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>  
+</head> -->
+
+<body>
+<div th:fragment="navbar(activeTab)">
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container-fluid">  
+      
+         <div class="navbar-brand navbar-brand-left">
+	        <a href="login.html" th:href="@{/login}">
+	          <img src="../images/logo/FinomYLogo.png"></img>
+	        </a>	
+	     </div>
+         <ul class="nav navbar-nav">
+         	<li th:class="${activeTab == 'investments'} ? 'active' : null"><a data-toggle="tab" 
+         		href="${pageContext.request.contextPath}/investments/investmentEntryForm"
+         		th:href="@{/investments/investmentEntryForm}">Investments</a></li>                
+             <li th:class="${activeTab == 'grosspay'} ? 'active' : null"><a data-toggle="tab" 
+             	href="${pageContext.request.contextPath}/grosspay/main"
+             	th:href="@{/grosspay/main}">Salary</a></li>
+             <li th:class="${activeTab == 'otherincome'} ? 'active' : null"> <a data-toggle="tab" 
+             	href="${pageContext.request.contextPath}/otherIncome/otherIncomeEntryForm"
+             	th:href="@{/otherIncome/otherIncomeEntryForm}">Other Income</a></li>
+           <!--  <li><a href="${pageContext.request.contextPath}/#"></a></li> -->
+		<!-- <li><a data-toggle="tab" href="../grosspay/main">Salary</a></li> -->	
+        	</ul>
+        <ul class="nav navbar-nav navbar-right">
+        		<li><span class="glyphicon glyphicon-user"></span><span th:text="${currentUser}">CurrentUser</span></li>
+             <li><a href="${pageContext.request.contextPath}/logout"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+        </ul>
+<!--         <h3 class="text-muted"></h3> -->  
+	</div>    
+    </nav> 
+    </div>
+</body>      
+</html>

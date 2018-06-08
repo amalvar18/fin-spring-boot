@@ -1,0 +1,32 @@
+@CHARSET "ISO-8859-1";
+
+/*Pad body at the top to prevent it from being overlapped by fixed navbar*/
+/* body{ padding-top: 70px;	} */
+
+.top-buffer-20 { margin-top:20px;	}
+
+.left-buffer-0 { padding-left:0px;	}
+
+.bottom-buffer-20 { margin-bottom:20px;	}
+
+.left-buffer-30 { padding-left:90px;	}
+
+/*Input placeholder font size  */
+input.placeholder-txt-8::-webkit-input-placeholder { font-size: 8.5pt;	}
+input.placeholder-txt-10::-webkit-input-placeholder { font-size: 10pt;	}
+input.placeholder-txt-12::-webkit-input-placeholder { font-size: 12pt;	}
+
+@font-face {
+    font-family: "federal-service";
+    src: url("/fonts/federal-service/fedserviceital1-webfont.woff2") format('woff2'),
+         url("/fonts/federal-service/fedserviceital1-webfont.woff") format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.logotext{
+	font-family: "federal-service";
+	/* display: inline-block; */
+  	font-size: 2.1rem;
+  	color: gold!important;
+}

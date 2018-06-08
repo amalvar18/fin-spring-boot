@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<div th:if="${!#strings.isEmpty(errMsg)}">
+    <div id="errorMsg" class="alert card-panel red lighten-1 z-depth-4 white-text">
+        <span th:text="${errMsg}"></span>
+    </div>
+</div>
+<div th:if="${param.error}">
+   <div id="loginError" class="alert card-panel red accent-1 z-depth-4 white-text center-align">
+   		<span>Invalid Email or Password!</span>
+   </div>
+</div>
+
+</html>

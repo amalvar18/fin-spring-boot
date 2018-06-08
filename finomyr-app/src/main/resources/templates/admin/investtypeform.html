@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+<meta charset="ISO-8859-1">
+</head>
+<body>
+<div class="top-buffer-20 bottom-buffer-20">
+<div id="investmentTypeForm" class="card hoverable">
+<!-- <div id="investmentTypeForm" class="col card hoverable s10 pull-s1 m6 pull-m3 l4 pull-l4 z-depth-6"> -->
+   	<span class="card-title teal-text top-buffer-20">Add Investment Type</span>
+   	<div th:include="/fragments/infomsg"></div>	
+    <div class="row">
+      <form autocomplete="off" th:action="@{/}" method="POST" 
+      th:object="${investmentType}" class="top-buffer-20">
+      
+      	<div class="row">
+          <div class="input-field col s4">
+            <i class="material-icons prefix">folder</i>
+            <select id="assetClass">            
+	            <option disabled selected value="">Choose your option</option>
+	            <option th:each="item : ${assetClassList}" th:value="${item.assetClassPhrase}" 
+	            	th:text="${item.assetClassPhrase}" />            
+            </select>            
+            <label>Asset Class</label>
+            <!-- <span th:if="${#fields.hasErrors('assetClass')}" class="red-text text-lighten-2" 
+            	th:errors="*{assetClass}">Invalid name</span> -->
+          </div>
+       <!--  </div>
+      
+      	<div class="row margin"> -->
+          <div class="input-field col s8">
+            <i class="material-icons prefix">money_off</i>
+            <input id="autocomplete-input-taxation" type="text" class="autocomplete" name="taxation"
+            th:field="*{taxation}" th:errorclass="invalid">
+            <!-- <label for="taxation">Taxation Type</label> -->
+             <label>Taxation Type</label>
+            <p th:if="${#fields.hasErrors('taxation')}" th:errors="*{taxation}" class="red-text text-lighten-2">Invalid last name</p>
+          </div>
+        </div>
+        
+        <div class="row margin">
+          <div class="input-field col s12">
+            <i class="material-icons prefix">label</i>
+            <input id="displayName" type="text" class="validate" name="displayName"
+            th:field="*{displayName}" th:errorclass="invalid">
+            <label for="displayName">Display Name</label>
+            <!-- <label for="firstName" th:attr="data-error='First name is mandatory'">Name</label> -->
+            <span th:if="${#fields.hasErrors('displayName')}" class="red-text text-lighten-2" th:errors="*{displayName}">Invalid name</span>
+          </div>
+        </div>
+        
+        <div class="row">
+        	<p class="col s3 offset-s1">
+		      <label>
+		        <input class="with-gap" name="category" type="radio" checked />
+		        <span>Main Category</span>
+		      </label>
+		    </p>
+		    <p class="col s3"><label>
+		        <input class="with-gap" name="category" type="radio" />
+		        <span>Sub Category</span>
+		    </label></p>
+        </div>     
+        
+        <div class="row margin">
+          <div class="input-field col s12">
+            <i class="material-icons prefix">arrow_upward</i>
+            <input disabled id="parentName" type="text" class="validate" name="parentName">
+            <label for="parentName">Parent Name</label>
+          	<!-- <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="red-text text-lighten-2">Invalid email</p> -->
+          </div>
+       </div>
+       <!-- <div class="row margin">
+          <div class="input-field col s12">
+            <i class="material-icons prefix">lock_outline</i>
+            <input id="password" type="password" name="password" 
+             th:field="*{password}" th:errorclass="invalid">
+            <label for="password">Password</label>
+            <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="red-text text-lighten-2">Invalid password</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s6">
+            <button name="Submit" value="Submit" type="Submit" th:text="Submit" class="btn waves-effect waves-light col s12 bottom-buffer-20"></button>
+          </div>
+        </div>
+		
+      </form>
+      </div>
+     </div>
+    </div>
+    <!-- <script type="text/javascript" th:src="@{/js/autocomplete/investmentType-autocomplete.js}"></script> -->
+</body>
+</html>

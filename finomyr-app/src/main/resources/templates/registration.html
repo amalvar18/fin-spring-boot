@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:include="fragments/staticresources :: head">
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1" /> -->
+	
+	<!-- <link type="text/css" rel="stylesheet" th:href="@{/css/loginpage.css}"/> -->
+</head>
+
+<body>
+<!-- <div class="grandParentContaniner"> -->
+<div th:include="/fragments/navbar"></div>	
+<div id="registration-page" class="valign-wrapper row login-box top-buffer-20">
+    <div id="registrationForm" class="col card hoverable s10 pull-s1 m6 pull-m3 l4 pull-l4 z-depth-6">
+    	<span class="card-title teal-text">Registration Form</span>
+    	<div th:include="/fragments/infomsg"></div>	
+      <form autocomplete="off" th:action="@{/register}" method="POST" 
+      th:object="${user}">
+  <!--       <div class="row">
+        	                 
+        </div> -->
+        <div class="row margin">
+          <div class="input-field col s12">
+            <i class="material-icons prefix">person_outline</i>
+            <!-- <input id="firstName" type="text" class="validate" name="firstName"
+            th:field="*{firstName}" th:classappend="${#fields.hasErrors('firstName')} ? invalid"> -->
+            <input id="firstName" type="text" class="validate" name="firstName"
+            th:field="*{firstName}" th:errorclass="invalid">
+            <label for="firstName">Name</label>
+            <!-- <label for="firstName" th:attr="data-error='First name is mandatory'">Name</label> -->
+            <span th:if="${#fields.hasErrors('firstName')}" class="red-text text-lighten-2" th:errors="*{firstName}">Invalid name</span>
+          </div>
+        </div>
+        <div class="row margin">
+          <div class="input-field col s12">
+            <i class="material-icons prefix">person</i>
+            <input id="lastName" type="text" class="validate" name="lastName"
+            th:field="*{lastName}" th:errorclass="invalid">
+            <label for="lastName">Last Name</label>
+            <p th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" class="red-text text-lighten-2">Invalid last name</p>
+          </div>
+        </div>
+        <div class="row margin">
+          <div class="input-field col s12">
+            <i class="material-icons prefix">email</i>
+            <input id="email" type="email" class="validate" name="email"
+            th:field="*{email}" th:errorclass="invalid">
+            <label for="email">Email</label>
+          	<p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="red-text text-lighten-2">Invalid email</p>
+          </div>
+        </div>
+        <div class="row margin">
+          <div class="input-field col s12">
+            <i class="material-icons prefix">lock_outline</i>
+            <input id="password" type="password" name="password" 
+             th:field="*{password}" th:errorclass="invalid">
+            <label for="password">Password</label>
+            <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="red-text text-lighten-2">Invalid password</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <button name="Submit" value="Register" type="Submit" th:text="Register" class="btn waves-effect waves-light col s12"></button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s6 m6 l6">
+            <p class="margin medium-small"><a th:href="@{/login}">Login</a></p>
+          </div>          
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+	<div th:include="fragments/staticresources :: scripts"></div>
+</body>
+</html>
